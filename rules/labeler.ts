@@ -59,7 +59,7 @@ export const labeler = testableSchedule(
 
     let labels: Set<string> = new Set(currentLabels);
 
-    markdown('This is a test. @jlengstorf is pushing buttons; disregard.');
+    //markdown('This is a test. @jlengstorf is pushing buttons; disregard.');
 
     if (endsWith('?', title) || matchKeyword(questionWords, title, true)) {
       labels.add('question').add('type: question or discussion');
