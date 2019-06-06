@@ -8,7 +8,7 @@
   "rules": {},
   "repos": {
     "pieh/merge-on-green-playground": {
-      "status": ["pieh/peril-gatsbyjs@rules/merge-on-green.ts"],
+      "status.success": ["pieh/peril-gatsbyjs@rules/merge-on-green.ts"],
       "pull_request.labeled": ["pieh/peril-gatsbyjs@rules/merge-on-green.ts"],
       "pull_request_review.submitted": [
         "pieh/peril-gatsbyjs@rules/merge-on-green.ts"
