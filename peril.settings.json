@@ -5,46 +5,18 @@
     "env_vars": ["SLACK_WEBHOOK_URL", "GITHUB_ACCESS_TOKEN"],
     "modules": ["@slack/client", "joi", "js-yaml", "date-fns"]
   },
-  "rules": {
-    "issue_comment": ["rules/not-stale.ts"],
-    "issues.opened": ["rules/emptybody.ts", "rules/labeler.ts"],
-    "pull_request.closed (pull_request.merged == true)": [
-      "rules/invite-collaborator.ts"
-    ]
-  },
+  "rules": {},
   "repos": {
-    "gatsbyjs/gatsby": {
-      "pull_request": ["gatsbyjs/peril-gatsbyjs@rules/validate-yaml.ts"],
-      "check_run": ["gatsbyjs/peril-gatsbyjs@rules/validate-yaml.ts"],
-      "pull_request.labeled": [
-        "gatsbyjs/peril-gatsbyjs@rules/merge-on-green.ts"
-      ],
+    "pieh/merge-on-green-playground": {
+      "status": ["pieh/peril-gatsbyjs@rules/merge-on-green.ts"],
+      "pull_request.labeled": ["pieh/peril-gatsbyjs@rules/merge-on-green.ts"],
       "pull_request_review.submitted": [
-        "gatsbyjs/peril-gatsbyjs@rules/merge-on-green.ts"
+        "pieh/peril-gatsbyjs@rules/merge-on-green.ts"
       ],
-      "check_suite.completed": [
-        "gatsbyjs/peril-gatsbyjs@rules/merge-on-green.ts"
-      ]
-    },
-    "gatsbyjs/gatsby-starter-default": {
-      "pull_request.opened": [
-        "gatsbyjs/peril-gatsbyjs@rules/pull-request-on-starter.ts"
-      ]
-    },
-    "gatsbyjs/gatsby-starter-hello-world": {
-      "pull_request.opened": [
-        "gatsbyjs/peril-gatsbyjs@rules/pull-request-on-starter.ts"
-      ]
-    },
-    "gatsbyjs/gatsby-starter-blog": {
-      "pull_request.opened": [
-        "gatsbyjs/peril-gatsbyjs@rules/pull-request-on-starter.ts"
-      ]
+      "check_suite.completed": ["pieh/peril-gatsbyjs@rules/merge-on-green.ts"]
     }
   },
-  "tasks": {
-    "stale": "tasks/stale.ts"
-  },
+  "tasks": {},
   "scheduler": {
     "daily": "stale"
   }

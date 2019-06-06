@@ -47,6 +47,9 @@ const checkPRConditionsAndMerge = async ({
 }
 
 export const mergeOnGreen = async () => {
+  const { api, ...rest } = danger.github
+  console.log(rest)
+
   try {
     if (danger.github.action === `completed` && danger.github.check_suite) {
       // this is for check_suite.completed
