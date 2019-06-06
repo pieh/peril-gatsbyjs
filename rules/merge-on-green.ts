@@ -1,7 +1,7 @@
 import { danger, peril } from "danger"
 import * as octokit from "@octokit/rest"
 
-const checkPRCondidationsAndMerge = async ({
+const checkPRConditionsAndMerge = async ({
   number,
   owner,
   repo,
@@ -52,7 +52,7 @@ export const mergeOnGreen = async () => {
       while (i < results.data.items.length) {
         const pr = results.data.items[i]
         i++
-        await checkPRCondidationsAndMerge({
+        await checkPRConditionsAndMerge({
           number: pr.number,
           owner: danger.github.repository.owner.login,
           repo: danger.github.repository.name,
@@ -63,14 +63,14 @@ export const mergeOnGreen = async () => {
       danger.github.pull_request
     ) {
       // this is for pull_request_review.submitted
-      await checkPRCondidationsAndMerge({
+      await checkPRConditionsAndMerge({
         number: danger.github.pull_request.number,
         repo: danger.github.pull_request.base.repo.name,
         owner: danger.github.pull_request.base.repo.owner.login,
       })
     } else {
       // this is for pull_request.labeled
-      await checkPRCondidationsAndMerge({
+      await checkPRConditionsAndMerge({
         number: danger.github.pr.number,
         repo: danger.github.pr.base.repo.name,
         owner: danger.github.pr.base.repo.owner.login,
