@@ -7,6 +7,10 @@
   },
   "rules": {},
   "repos": {
+    "pieh/gatsby": {
+      "pull_request": ["gatsbyjs/peril-gatsbyjs@rules/validate-yaml.ts#forbid-new-showcase-categories"],
+      "check_run": ["gatsbyjs/peril-gatsbyjs@rules/validate-yaml.ts#forbid-new-showcase-categories"],
+    },
     "pieh/merge-on-green-playground": {
       "status.success": ["pieh/peril-gatsbyjs@rules/merge-on-green.ts"],
       "pull_request.labeled": ["pieh/peril-gatsbyjs@rules/merge-on-green.ts"],
